@@ -9,6 +9,7 @@ pip install jinja2
 pip install MarkupSafe
 pip install itsdangerous
 pip install click
+pip install psycopg2
 ```
 * Install Flask : `pip install Flask`
 * Run `export FLASK_ENV=development`
