@@ -1,0 +1,28 @@
+{
+  "name": "Josef",
+  "version": "1.0",
+  "description": "Fait les course pour toi",
+  "background": {
+    "scripts": [
+      "./vendors/jquery-min-3_3_1.js",
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+    "http://*/*",
+    "storage",
+    "contextMenus",
+    "declarativeContent"
+  ],
+  "icons": {
+    "128": "img/bag_128.png",
+    "64": "img/bag_64.png",
+    "16": "img/bag_16.png"
+  },
+  "page_action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "addlist.html",
+  "manifest_version": 2
+}
