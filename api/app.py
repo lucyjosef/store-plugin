@@ -42,7 +42,7 @@ def show_list(list_id):
             DELETE FROM items WHERE list_id=%(list_id)s
             """, {'list_id': list_id})
         conn.commit()
-        return 'Your list has been successfully deleted'
+        return 'Your list has been successfully removed'
 
 
 ################ ITEMS ################
@@ -72,7 +72,7 @@ def index_item(list_id):
                 'list_id': list_id
             })
         conn.commit()
-        return "You've adde a new item in your list"
+        return "You've added a new item in your list"
 
 @app.route('/list/<int:list_id>/item/<int:item_id>', methods= ["GET", "DELETE"])
 def show_item(list_id, item_id):
@@ -82,4 +82,8 @@ def show_item(list_id, item_id):
         res = cur.fetchall()
         return json.dumps(res)
     elif request.method == "DELETE":
-        return 'bhjiok'
+        cur.execute("""
+            DELETE FROM items WHERE id=%(item_id)s
+            """, {'id': item_id})
+        conn.commit()
+        return "Item removed"

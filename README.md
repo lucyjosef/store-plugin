@@ -10,7 +10,6 @@ pip install MarkupSafe
 pip install itsdangerous
 pip install click
 pip install psycopg2
-pip install pandas
 ```
 * Install Flask : `pip install Flask`
 * Run `export FLASK_ENV=development`

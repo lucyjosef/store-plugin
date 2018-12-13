@@ -4,13 +4,14 @@
   "description": "Fait les course pour toi",
   "background": {
     "scripts": [
-      "./vendors/jquery-min-3_3_1.js",
-      "background.js"
+      "vendors/jquery-min-3_3_1.js",
+      "background.js",
+      "content.js"
     ],
     "persistent": false
   },
   "permissions": [
-    "http://*/*",
+    "http://localhost:5000/*",
     "storage",
     "contextMenus",
     "declarativeContent"
@@ -23,6 +24,6 @@
   "page_action": {
     "default_popup": "popup.html"
   },
-  "options_page": "addlist.html",
+  "options_page": "option.html",
   "manifest_version": 2
 }
