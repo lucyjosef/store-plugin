@@ -36,7 +36,10 @@ def show_list(list_id):
         return json.dumps(res_dict)
     elif request.method == 'DELETE':
         cur.execute("""
-            DELETE FROM lists WHERE id=%(list_id)s
+            DELETE FROM lists WHERE id=%(id)s
+            """, {'id': list_id})
+        cur.execute("""
+            DELETE FROM items WHERE list_id=%(list_id)s
             """, {'list_id': list_id})
         conn.commit()
         return 'Your list has been successfully deleted'
@@ -45,9 +48,38 @@ def show_list(list_id):
 ################ ITEMS ################
 
 @app.route('/list/<int:list_id>/item', methods=["GET", "POST"])
-def index_item():
+def index_item(list_id):
     if request.method == 'GET':
         cur.execute("""SELECT * FROM items WHERE list_id=%(list_id)s""",
             {'list_id': list_id})
         res = cur.fetchall()
         return json.dumps(res)
+    if request.method == 'POST':
+        now = str(time.strftime("%Y-%m-%d"))
+        cost = request.form["cost"]
+        if ',' in cost:
+            cost = cost.replace(',', '.')
+        cur.execute("""
+            INSERT INTO items (name, cost, link, image_link, created_at, list_id)
+            VALUES (%(name)s, %(cost)s, %(link)s , %(image_link)s, %(created_at)s, %(list_id)s);
+            """,
+            {
+                'name': request.form["name"],
+                'cost': cost,
+                'link': request.form["link"],
+                'image_link': request.form["image_link"],
+                'created_at': now,
+                'list_id': list_id
+            })
+        conn.commit()
+        return "You've adde a new item in your list"
+
+@app.route('/list/<int:list_id>/item/<int:item_id>', methods= ["GET", "DELETE"])
+def show_item(list_id, item_id):
+    if request.method == "GET":
+        cur.execute("""SELECT * FROM items WHERE list_id=%(list_id)s AND id=%(id)s""",
+            {'list_id': list_id, 'id': item_id})
+        res = cur.fetchall()
+        return json.dumps(res)
+    elif request.method == "DELETE":
+        return 'bhjiok'

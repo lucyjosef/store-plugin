@@ -10,6 +10,7 @@ pip install MarkupSafe
 pip install itsdangerous
 pip install click
 pip install psycopg2
+pip install pandas
 ```
 * Install Flask : `pip install Flask`
 * Run `export FLASK_ENV=development`
@@ -17,7 +18,7 @@ pip install psycopg2
 ## View, use and administrate plugin
 -> *Goto* (https://developer.chrome.com/home)[https://developer.chrome.com/home] to use and test the plugin
 
--> *Goto* (chrome://extensions/)[chrome://extensions/] to administrate plugin
+-> *Goto* chrome://extensions/ to administrate plugin
 
 ## run the API
 
