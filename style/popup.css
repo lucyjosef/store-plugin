@@ -1,6 +1,10 @@
 a{
   text-decoration: none;
 }
+body {
+  background-color: #eceff1;
+  color: #37474f;
+}
 .header {
   width: 103%;
   height: 50px;
@@ -10,35 +14,57 @@ a{
   padding-left: 50px;
 }
 div.addElement {
-  background-color: #00838f;
+  background-color: #f48fb1;
   padding: 10px 10px 10px 10px;
-  width: 100%;
+  width: 91%;
   min-width: 200px;
   color: white;
   border-radius: 2px;
-  margin-left: -11px;
+  margin-left: 10px;
   margin-top: 40px;
 }
 div.listItem {
   box-shadow: 1px 1px 11px -3px grey;
   margin-top: 10px;
-  min-width: 100px;
   margin-left: 10px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
 }
-div.listItemContent {
+div.list {
   padding: 10px;
 }
 div.listDetail {
   color: white;
   padding: 5px;
-  background-color: #00838f;
   border-radius: 2px;
+  min-width: 55px;
 }
 div.listItem h3 {
   padding: 10px;
-  background-color: #ff8a65;
-  color: white;
+  color: #37474f;
   margin-top: 0;
+}
+div.nb-items {
+  width: 50px;
+  background-color: #37474f;
+  color: white;
+  text-align:center;
+  font-size: 1.5em;
+}
+div.search {
+  font-size : 1.8em;
+  margin-right: 4%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: row-reverse;
+  border-bottom: 1px solid #37474f;
+  padding-bottom: 25px;
+}
+div.search i {
+  float: right;
+  padding-left: 10px;
 }
 div#content {
   padding: 20px;
@@ -56,13 +82,24 @@ span.budgetRed {
   color: red;
   font-weight: bold;
 }
-div#header {
-  height: 140px;
-  background-color: #283593;
-  margin-top: -13px;
-  margin-left: -8px;
-  margin-right: -13px;
+div#sider-nav {
+    width: 100px;
+    height: 105vh;
+    background-color: #37474f;
+    margin-top: -13px;
+    margin-left: -8px;
+    margin-right: -13px;
+    position: absolute;
+    right: 0;
 }
-div#header img {
-  width: 17%;
+.main-menu {
+    text-decoration: none;
+    margin-top: 100%;
+    list-style: none;
+    padding-left: 28px;
+}
+.main-menu i {
+    color: white;
+    font-size: 2.8em;
+    padding-bottom: 20px
 }

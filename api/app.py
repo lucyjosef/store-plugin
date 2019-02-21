@@ -4,12 +4,14 @@ import time
 import psycopg2
 from flask import Flask
 from flask import request
+from .addons.item_controller import ItemController
+from .addons.list_controller import ListController
 
 app = Flask(__name__)
 conn = psycopg2.connect("dbname=store-plugin user=admin host=localhost")
 cur = conn.cursor()
 
-################ LISTS ################
+
 @app.route('/list', methods=['GET', 'POST'])
 def index_list():
     if request.method == 'GET':
@@ -28,6 +30,7 @@ def index_list():
         conn.commit()
         return 'Your list has been successfully saved !'
 
+
 @app.route('/list/<int:list_id>', methods=["GET", "DELETE"])
 def show_list(list_id):
     if request.method == 'GET':
@@ -45,7 +48,6 @@ def show_list(list_id):
         return 'Your list has been successfully removed'
 
 
-################ ITEMS ################
 
 @app.route('/list/<int:list_id>/item', methods=["GET", "POST"])
 def index_item(list_id):
@@ -73,6 +75,7 @@ def index_item(list_id):
             })
         conn.commit()
         return "You've added a new item in your list"
+
 
 @app.route('/list/<int:list_id>/item/<int:item_id>', methods= ["GET", "DELETE"])
 def show_item(list_id, item_id):
